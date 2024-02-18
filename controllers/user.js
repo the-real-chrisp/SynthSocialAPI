@@ -31,6 +31,19 @@ module.exports = {
         }
     },
     async updateUser(req, res) {
+        try {
+            const modifyUser = await User.findOneAnd({ _id: req.params.userId }, req.body, { new: true });
+
+            if (!modifyUser) {
+                return res.status(404).json({ message: 'No user found' });
+            }
+
+            res.json(modifyUser);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async deleteUser(req, res) {
         
     }
 }
