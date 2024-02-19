@@ -76,6 +76,8 @@ module.exports = {
                 { $pull: { friends: req.body.friendId } },
                 { new: true }
             );
+
+            res.json(deleteFriend);
         } catch (err) {
             res.status(500).json(err);
         }
