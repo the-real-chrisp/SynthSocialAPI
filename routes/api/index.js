@@ -6,4 +6,4 @@ const thoughtRoute = require('./thoughtRoute');
 router.use('/user', userRoute);
 router.use('thought', thoughtRoute);
 
-module.export = router
+module.exports = router
